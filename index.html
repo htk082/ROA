@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>若里 Rolling | 建築師事務所 ARCHITECTS</title>
-    <meta name="description" content="若里 Rolling 建築師事務所，專注於現代極簡、高科技工業建築、生技廠房與當代空間規劃，提供量身訂做的細緻設計與空間策略。">
-    <meta name="keywords" content="若里, Rolling, 建築師事務所, 建築設計, 生技廠房, 現代極簡, 空間規劃, 台灣建築師">
+    <meta name="description" content="若里 Rolling 建築師事務所，專注於當代空間規劃，提供量身訂做的細緻設計與空間策略。">
+    <meta name="keywords" content="若里, Rolling, 建築師事務所, 建築設計,生技廠房, 現代極簡, 空間規劃, 台灣建築師">
     <style>
         /* --- 全局冷高冷風格重設 --- */
         * {
@@ -17,10 +17,11 @@
 
         html {
             scroll-behavior: smooth;
-            font-family: "Helvetica Neue", Helvetica, Arial, "Noto Sans TC", sans-serif;
+            font-family: Arial, Helvetica, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
             background-color: #ffffff;
             color: #1a1a1a;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -52,7 +53,7 @@
             align-items: center;
             padding: 2rem 4rem;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
         }
 
@@ -65,8 +66,8 @@
         .logo span {
             display: block;
             font-size: 0.8rem;
-            font-weight: 300;
-            color: #8c8c8c;
+            font-weight: 500;
+            color: #737373;
         }
 
         .nav-links {
@@ -74,6 +75,7 @@
             gap: 3rem;
             font-size: 0.85rem;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         /* --- 首頁：滿版純白與意象動態核心 --- */
@@ -105,7 +107,7 @@
 
         .circle-outer, .circle-inner {
             position: absolute;
-            border: 1px solid #1a1a1a;
+            border: 1.5px solid #1a1a1a;
             border-radius: 50%;
         }
 
@@ -123,13 +125,11 @@
             animation: spin-reverse 5s linear infinite;
         }
 
-        /* 具備畫面感的平衡斷句排版 */
         .hero-text {
             font-size: 0.85rem;
             line-height: 2.2;
-            font-weight: 300;
-            color: #4a4a4a;
-            max-width: 800px;
+            font-weight: 500;
+            color: #333333;
         }
 
         .hero-text span {
@@ -155,35 +155,62 @@
 
         .section-title {
             font-size: 1.5rem;
-            font-weight: 300;
+            font-weight: 500;
             margin-bottom: 4rem;
             text-transform: uppercase;
         }
 
-        /* --- 作品案例（純文字列舉） --- */
+        /* --- 作品案例 --- */
         .project-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
 
         .project-item {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding-bottom: 1.5rem;
+            justify-content: flex-start;
+            align-items: center;
+            padding-bottom: 2.5rem;
             border-bottom: 1px solid #f5f5f5;
-        }
-
-        .project-name {
-            font-size: 1rem;
-            font-weight: 400;
         }
 
         .project-category {
             font-size: 0.85rem;
-            color: #8c8c8c;
-            font-weight: 300;
+            color: #555555;
+            font-weight: 500;
+            width: 180px; 
+            flex-shrink: 0;
+        }
+
+        .project-media-box {
+            width: 100px;
+            height: 100px;
+            margin-right: 4rem;
+            flex-shrink: 0;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-media-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-media-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+
+        .project-name {
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         /* --- 關於我們 --- */
@@ -196,8 +223,8 @@
         .about-text {
             font-size: 0.95rem;
             line-height: 2;
-            color: #4a4a4a;
-            font-weight: 300;
+            color: #333333;
+            font-weight: 500;
         }
 
         .about-text p {
@@ -221,17 +248,17 @@
         .member-list li {
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
-            color: #4a4a4a;
-            font-weight: 300;
+            color: #333333;
+            font-weight: 500;
         }
 
         .member-list span {
-            color: #8c8c8c;
+            color: #737373;
             font-size: 0.8rem;
             margin-left: 1rem;
+            font-weight: 500;
         }
 
-        /* 聯絡資訊等距整齊排列 */
         .address-list {
             display: flex;
             flex-direction: column;
@@ -241,8 +268,8 @@
         address {
             font-style: normal;
             font-size: 0.9rem;
-            color: #4a4a4a;
-            font-weight: 300;
+            color: #333333;
+            font-weight: 500;
             line-height: 1; 
         }
 
@@ -255,7 +282,8 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
-            color: #8c8c8c;
+            color: #737373;
+            font-weight: 500;
         }
 
         /* --- RWD 響應式斷點設定 --- */
@@ -269,20 +297,30 @@
             .about-content {
                 gap: 3rem;
             }
+            .project-media-box {
+                margin-right: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
+                flex-direction: column; /* 修正：改為垂直分層排版，防止空間窄時 About 被推擠消失 */
+                align-items: flex-start; /* 靠左對齊基底 */
                 gap: 1.5rem;
-                padding: 1.5rem;
-                position: absolute;
-                background: transparent;
-                text-align: center;
+                padding: 1.5rem 2rem;
+                background-color: rgba(255, 255, 255, 0.95);
             }
+            
+            nav {
+                width: 100%; /* 讓選單容器撐滿 */
+                display: flex;
+                justify-content: flex-end; /* 將 PROJECTS / ABOUT 俐落推至最右側 */
+            }
+
             .nav-links {
-                gap: 1.5rem;
+                gap: 2rem; /* 保持手機端舒適的點擊間距 */
             }
+
             .hero-text {
                 font-size: 0.8rem;
                 line-height: 2;
@@ -290,8 +328,23 @@
                 word-break: break-all;
             }
             .project-item {
-                flex-direction: column;
-                gap: 0.5rem;
+                flex-direction: column; 
+                align-items: flex-start;
+                gap: 1rem;
+                padding-bottom: 2rem;
+            }
+            .project-category {
+                width: auto; 
+                font-size: 0.8rem;
+            }
+            .project-media-box {
+                width: 100%; 
+                aspect-ratio: 1 / 1;
+                height: auto;
+                margin-right: 0;
+            }
+            .project-name {
+                font-size: 0.9rem;
             }
             .about-content {
                 grid-template-columns: 1fr;
@@ -308,7 +361,6 @@
 </head>
 <body>
 
-    <!-- 導覽列 -->
     <header>
         <div class="logo">
             <a href="#home">
@@ -324,7 +376,6 @@
         </nav>
     </header>
 
-    <!-- 首頁：滿版純白與意象動態組合 -->
     <main>
         <section id="home">
             <div class="hero-container">
@@ -341,59 +392,88 @@
 
         <hr style="border: none; height: 1px; background-color: #f5f5f5; max-width: 1400px; margin: 0 auto;">
 
-        <!-- 作品案例：純文字列舉（依年份排列） -->
         <section id="projects">
             <h2 class="section-title">Selected Projects</h2>
             <div class="project-list">
                 
                 <div class="project-item">
-                    <span class="project-name">南崁AIDC</span>
-                    <span class="project-category">2026~</span>
+                    <span class="project-category">2026-Present</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">桃園南崁AI數據中心建置工程</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">泰和茂建設彰化埔心地上9層集合住宅</span>
-                    <span class="project-category">2025~</span>
+                    <span class="project-category">2025-Present</span>
+                    <div class="project-media-box">
+                        <img src="Enscape_2025-12-23-11-59-48.png" alt="彰化埔心集合住宅新建工程">
+                    </div>
+                    <span class="project-name">彰化埔心集合住宅新建工程</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">南科嘉義園區生技廠房</span>
-                    <span class="project-category">2025~</span>
+                    <span class="project-category">2025-Present</span>
+                    <div class="project-media-box">
+                        <img src="Enscape_2026-03-24-09-02-30_Enscape 場景 1.png" alt="南科嘉義園區生技廠房新建工程">
+                    </div>
+                    <span class="project-name">南科嘉義園區生技廠房新建工程</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">宜蘭休閒渡假園區前期規劃</span>
-                    <span class="project-category">2025~</span>
+                    <span class="project-category">2025-Present</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">宜蘭清水自然養生及觀光遊憩園區營運與空間規劃</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">南投創新長照園區規劃</span>
                     <span class="project-category">2025</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">南投埔里創新長照園區設計規劃及開發策略評估</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">海洋科技大學校區規劃</span>
                     <span class="project-category">2025</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">台北海洋科技大學士林校區發展規劃</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">澎湖望安鄉立圖書館先期規劃服務</span>
                     <span class="project-category">2025</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">澎湖望安鄉立圖書館重建可行性研究</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">內湖碧湖四小段危老評估</span>
                     <span class="project-category">2024</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">內湖碧湖四小段危老重建規劃設計</span>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-name">新北社會局智慧社福大樓規劃</span>
                     <span class="project-category">2024</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <span class="project-name">新北社會局智慧社福大樓前期規劃</span>
                 </div>
 
                 <div class="project-item">
+                    <span class="project-category">2020-Present</span>
+                    <div class="project-media-box">
+                        <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
+                    </div>
                     <span class="project-name">彰化農舍新建工程</span>
-                    <span class="project-category">2020~</span>
                 </div>
 
             </div>
@@ -401,7 +481,6 @@
 
         <hr style="border: none; height: 1px; background-color: #f5f5f5; max-width: 1400px; margin: 0 auto;">
 
-        <!-- 關於我們 -->
         <section id="about">
             <h2 class="section-title">About Us</h2>
             <div class="about-content">
@@ -413,7 +492,6 @@
                 </div>
 
                 <div class="info-panel">
-                    <!-- 團隊成員 -->
                     <div class="team-section">
                         <h3>Team</h3>
                         <ul class="member-list">
@@ -422,7 +500,6 @@
                         </ul>
                     </div>
 
-                    <!-- 事務所聯絡資訊 -->
                     <div class="address-section">
                         <h3>Location</h3>
                         <div class="address-list">
@@ -438,7 +515,6 @@
         </section>
     </main>
 
-    <!-- 頁尾 -->
     <footer>
         <p>&copy; 2026 ROLLING ARCHITECTS. All Rights Reserved.</p>
     </footer>
