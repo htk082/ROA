@@ -214,7 +214,6 @@
             line-height: 1.6;
         }
 
-        /* 綁定單詞與語順，防止手機端單字破損換行 */
         .project-name span {
             display: inline-block;
         }
@@ -312,7 +311,7 @@
             header {
                 flex-direction: row; 
                 justify-content: space-between;
-                align-items: flex-start; 
+                align-items: flex-start; /* 頂部齊平基準線 */
                 padding: 2rem 1.5rem;
                 background-color: transparent; 
                 backdrop-filter: none;
@@ -320,7 +319,7 @@
 
             .logo {
                 font-size: 1rem;
-                line-height: 1.4; /* 公司中英文名稱整體高度基準 */
+                line-height: 1.4; /* 左側雙行整體的黃金行高 */
             }
 
             .logo span {
@@ -331,15 +330,18 @@
             nav {
                 display: block;
                 width: auto;
+                /* 強制右側 nav 容器高度與左側 logo 文字方塊在物理上完全等高 (1rem * 1.4 + 0.7rem * 1.4) */
+                height: 2.38rem; 
             }
 
             .nav-links {
+                height: 100%; /* 撐滿物理高度 */
                 flex-direction: column; 
                 align-items: flex-end;
-                /* 修正：微調手機端選單行高與間距，使其整體高度與左側公司名精準一致 */
-                gap: 0px; 
-                line-height: 1.45; 
+                justify-content: space-between; /* 核心修正：讓 PROJECTS 吸頂、ABOUT 吸底，達成極致絕對水平對齊 */
+                gap: 0; 
                 font-size: 0.85rem;
+                line-height: 1; /* 消除內建字體行高干擾 */
             }
 
             .hero-text {
