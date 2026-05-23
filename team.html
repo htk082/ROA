@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team | 若里 Rolling 建築師事務所</title>
+    <meta name="description" content="若里 Rolling 建築師事務所團隊成員介紹，由主持建築師許庭愷與專案建築師吳奕輝帶領，專注於當代空間規劃。">
+    <meta name="keywords" content="若里, Rolling, 團隊成員, 許庭愷, 吳奕輝, 建築師">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            letter-spacing: 0.15em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+            color: #1a1a1a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            animation: bgBreath 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgBreath {
+            0% { background-color: #fdf9e7; }
+            100% { background-color: #f7f1eb; }
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            z-index: 1000;
+            animation: bgBreath 8s ease-in-out infinite alternate;
+            background-color: transparent; 
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #737373;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        #team-page {
+            padding: 12rem 4rem 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 90vh;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            text-transform: uppercase;
+        }
+
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem; 
+        }
+
+        .team-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start; 
+            padding-bottom: 5rem;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.05); 
+            scroll-margin-top: 14rem;
+        }
+
+        .role-field {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            font-weight: 500;
+            width: 220px; 
+            flex-shrink: 0;
+            line-height: 1.5;
+        }
+
+        .role-field span {
+            display: block;
+            font-size: 0.75rem;
+            color: #555555;
+            margin-top: 0.2rem;
+        }
+
+        .avatar-box {
+            width: 100px;
+            height: 100px;
+            margin-right: 4rem;
+            flex-shrink: 0;
+            background-color: rgba(26, 26, 26, 0.03);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .name-field {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bio-section h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #737373;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding-bottom: 0.4rem;
+            width: fit-content;
+        }
+
+        .edu-list li {
+            font-size: 0.85rem;
+            color: #333333;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .edu-list span {
+            display: inline-block;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .exp-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .exp-item.award-record {
+            font-size: 0.75rem;
+            color: #8c8c8c;
+            margin-top: -0.2rem;
+        }
+
+        .exp-year {
+            width: 110px; 
+            color: #1a1a1a;
+            font-weight: 500;
+            flex-shrink: 0;
+            text-align: right;
+            padding-right: 20px; 
+        }
+
+        .exp-item.award-record .exp-year {
+            color: #8c8c8c;
+        }
+
+        .exp-project {
+            width: 500px; 
+            color: #333333;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .exp-project span {
+            display: block; 
+        }
+
+        .exp-firm {
+            color: #737373;
+            font-weight: 500;
+        }
+
+        footer {
+            padding: 4rem;
+            border-top: 1px solid rgba(26, 26, 26, 0.05);
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #737373;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            header { padding: 2rem; }
+            #team-page { padding: 10rem 2rem 6rem 2rem; }
+            .avatar-box { margin-right: 2rem; }
+            .exp-project { width: 400px; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: row; 
+                justify-content: space-between;
+                align-items: flex-start; 
+                padding: 2rem 1.5rem;
+                animation: bgBreath 8s ease-in-out infinite alternate;
+                backdrop-filter: blur(5px);
+            }
+
+            .logo { line-height: 1.4; }
+            .logo span { font-size: 0.7rem; letter-spacing: 0.1em; }
+            
+            nav { display: block; width: auto; height: 2.38rem; }
+
+            .nav-links {
+                height: 100%; 
+                flex-direction: column; 
+                align-items: flex-end;
+                justify-content: space-between; 
+                gap: 0; 
+                font-size: 0.85rem;
+                line-height: 1; 
+            }
+
+            .team-item {
+                flex-direction: column; 
+                align-items: flex-start;
+                gap: 1.5rem;
+                padding-bottom: 3rem;
+                scroll-margin-top: 8rem; 
+            }
+            
+            .role-field { width: auto; }
+
+            .avatar-box {
+                width: 100%; 
+                aspect-ratio: 1 / 1;
+                height: auto;
+                margin-right: 0;
+            }
+
+            .profile-container { gap: 2.5rem; width: 100%; }
+            .name-field { font-size: 0.95rem; }
+            
+            .exp-item { flex-direction: column; gap: 0.2rem; margin-bottom: 0.5rem; }
+            .exp-item.award-record { padding-left: 0.5em; font-size: 0.75rem; }
+            .exp-year { width: auto; font-size: 0.8rem; color: #737373; text-align: left; padding-right: 0; }
+            .exp-project { width: auto; font-size: 0.85rem; }
+            .exp-firm { width: auto; font-size: 0.8rem; }
+            
+            footer {
+                padding: 2rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                若里建築師事務所
+                <span>ROLLING ARCHITECTURE OFFICE</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="team-page">
+            <h2 class="section-title">Team</h2>
+            <div class="team-list">
+                
+                <div class="team-item" id="hsu">
+                    <div class="role-field">
+                        主持建築師
+                        <span>Principal Architect</span>
+                    </div>
+                    <div class="avatar-box">
+                        <img src="許庭愷.png" alt="許庭愷" onerror="this.src='ROLLING.gif';this.style.opacity='0.5'">
+                    </div>
+                    <div class="profile-container">
+                        <div class="name-field">許庭愷</div>
+                        
+                        <div class="bio-section">
+                            <h4>Education</h4>
+                            <ul class="edu-list">
+                                <li><span>私立淡江大學建築學系</span> <span>建築學士</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bio-section">
+                            <h4>過往實績</h4>
+                            <div class="experience-list">
+                                
+                                <div class="exp-item">
+                                    <span class="exp-year">2017-2020</span>
+                                    <span class="exp-project"><span>臺中市立圖書館上楓分館暨上楓國小活動中心</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2019</span>
+                                    <span class="exp-project">國家卓越建設獎＿最佳規劃設計類</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2021</span>
+                                    <span class="exp-project">建築園冶獎＿公共建築景觀類</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">A+AWARDS＿Institutional-Libraries</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">美國謬思設計大獎＿銀獎</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">臺灣建築獎＿入圍</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2024</span>
+                                    <span class="exp-project">德國iF設計獎</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2024</span>
+                                    <span class="exp-project">臺中市都市空間設計大獎＿小場域建築空間＿經典獎</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2020-2021</span>
+                                    <span class="exp-project"><span>臺中市立圖書館上楓分館室內裝修</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item award-record">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">台灣室內設計大獎＿公共空間文化空間＿金獎</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2019-2022</span>
+                                    <span class="exp-project"><span>國立臺灣海洋大學桃園產學分部藻礁暨海洋生態館</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project"><span>大江生醫屏東園區空橋興建工程</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project"><span>公視影集「天橋上的魔術師」中華商場周邊街景數位再現</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2021</span>
+                                    <span class="exp-project"><span>珍珍食品加工廠暨辦公室</span></span>
+                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>成美文化園區Villa</span></span>
+                                    <span class="exp-firm">任職於徐兆立黃俊騰建築師事務所作品</span>
+                                </div>
+
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>臺中市北屯區洲際段住宅</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>彰化縣和美鎮大霞段住宅</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>彰化縣芬園鄉新芬園段住宅</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>彰化縣芳苑鄉裕津段住宅</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project"><span>豐原果菜市場增建工程</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project"><span>彰化縣溪湖鎮四塊厝段住宅</span></span>
+                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bio-section">
+                            <h4>媒體刊載</h4>
+                            <div class="experience-list">
+                                <div class="exp-item">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">
+                                        <span>《建築師》雜誌＿No.582</span>
+                                        <span>作品收錄：上楓圖書館</span>
+                                    </span>
+                                    <span class="exp-firm">發表人 洪大為建築師事務所</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2021</span>
+                                    <span class="exp-project">
+                                        <span>《台灣建築》雜誌＿Vol.311</span>
+                                        <span>〈疫情下商業空間的加速轉變〉</span>
+                                    </span>
+                                    <span class="exp-firm">發表人 許庭愷</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project">
+                                        <span>《台灣建築》雜誌＿Vol.303</span>
+                                        <span>〈兩岸潛力建築新生代〉作品收錄：上楓圖書館</span>
+                                    </span>
+                                    <span class="exp-firm">發表人 洪大為建築師事務所</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="team-item" id="wu">
+                    <div class="role-field">
+                        專案建築師
+                        <span>Project Architect</span>
+                    </div>
+                    <div class="avatar-box">
+                        <img src="吳奕輝.png" alt="吳奕輝" onerror="this.src='ROLLING.gif';this.style.opacity='0.5'">
+                    </div>
+                    <div class="profile-container">
+                        <div class="name-field">吳奕輝</div>
+                        
+                        <div class="bio-section">
+                            <h4>Education</h4>
+                            <ul class="edu-list">
+                                <li><span>私立中原大學建築學系</span> <span>建築學士</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bio-section">
+                            <h4>過往實績</h4>
+                            <div class="experience-list">
+                                <div class="exp-item">
+                                    <span class="exp-year">2026</span>
+                                    <span class="exp-project"><span>過往案例列表（待補充）</span></span>
+                                    <span class="exp-firm">任職於余曉嵐建築師事務所作品</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ROLLING ARCHITECTS. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
