@@ -311,15 +311,16 @@
             header {
                 flex-direction: row; 
                 justify-content: space-between;
-                align-items: flex-start; /* 頂部齊平基準線 */
+                align-items: flex-start; 
                 padding: 2rem 1.5rem;
-                background-color: transparent; 
-                backdrop-filter: none;
+                /* 修正：還原與桌機一致的白色半透明與毛玻璃背景效果 */
+                background-color: rgba(255, 255, 255, 0.95); 
+                backdrop-filter: blur(5px);
             }
 
             .logo {
                 font-size: 1rem;
-                line-height: 1.4; /* 左側雙行整體的黃金行高 */
+                line-height: 1.4; 
             }
 
             .logo span {
@@ -330,18 +331,17 @@
             nav {
                 display: block;
                 width: auto;
-                /* 強制右側 nav 容器高度與左側 logo 文字方塊在物理上完全等高 (1rem * 1.4 + 0.7rem * 1.4) */
                 height: 2.38rem; 
             }
 
             .nav-links {
-                height: 100%; /* 撐滿物理高度 */
+                height: 100%; 
                 flex-direction: column; 
                 align-items: flex-end;
-                justify-content: space-between; /* 核心修正：讓 PROJECTS 吸頂、ABOUT 吸底，達成極致絕對水平對齊 */
+                justify-content: space-between; 
                 gap: 0; 
                 font-size: 0.85rem;
-                line-height: 1; /* 消除內建字體行高干擾 */
+                line-height: 1; 
             }
 
             .hero-text {
