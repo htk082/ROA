@@ -211,6 +211,12 @@
         .project-name {
             font-size: 1rem;
             font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* 綁定單詞與語順，防止手機端單字破損換行 */
+        .project-name span {
+            display: inline-block;
         }
 
         /* --- 關於我們 --- */
@@ -304,20 +310,21 @@
 
         @media (max-width: 768px) {
             header {
-                flex-direction: row; /* 完全還原：左右橫向並列 */
+                flex-direction: row; 
                 justify-content: space-between;
-                align-items: flex-start; /* 頂部對齊，符合截圖比例 */
+                align-items: flex-start; 
                 padding: 2rem 1.5rem;
-                background-color: transparent; /* 保持首頁極簡純白透明感 */
+                background-color: transparent; 
                 backdrop-filter: none;
             }
 
             .logo {
                 font-size: 1rem;
+                line-height: 1.4; /* 公司中英文名稱整體高度基準 */
             }
 
             .logo span {
-                font-size: 0.7rem; /* 手機版英文微縮，確保不推擠 */
+                font-size: 0.7rem; 
                 letter-spacing: 0.1em;
             }
             
@@ -327,9 +334,11 @@
             }
 
             .nav-links {
-                flex-direction: column; /* 讓 PROJECTS 與 ABOUT 垂直靠右排列 */
+                flex-direction: column; 
                 align-items: flex-end;
-                gap: 0.8rem; /* 完美的截圖行距比例 */
+                /* 修正：微調手機端選單行高與間距，使其整體高度與左側公司名精準一致 */
+                gap: 0px; 
+                line-height: 1.45; 
                 font-size: 0.85rem;
             }
 
@@ -357,6 +366,7 @@
             }
             .project-name {
                 font-size: 0.9rem;
+                line-height: 1.5;
             }
             .about-content {
                 grid-template-columns: 1fr;
@@ -413,7 +423,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">桃園南崁AI數據中心建置工程</span>
+                    <span class="project-name">
+                        <span>桃園南崁</span><span>AI數據中心</span><span>建置工程</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -421,7 +433,9 @@
                     <div class="project-media-box">
                         <img src="Enscape_2025-12-23-11-59-48.png" alt="彰化埔心集合住宅新建工程">
                     </div>
-                    <span class="project-name">彰化埔心集合住宅新建工程</span>
+                    <span class="project-name">
+                        <span>彰化埔心</span><span>集合住宅</span><span>新建工程</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -429,7 +443,9 @@
                     <div class="project-media-box">
                         <img src="Enscape_2026-03-24-09-02-30_Enscape 場景 1.png" alt="南科嘉義園區生技廠房新建工程">
                     </div>
-                    <span class="project-name">南科嘉義園區生技廠房新建工程</span>
+                    <span class="project-name">
+                        <span>南科嘉義園區</span><span>生技廠房</span><span>新建工程</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -437,7 +453,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">宜蘭清水自然養生及觀光遊憩園區營運與空間規劃</span>
+                    <span class="project-name">
+                        <span>宜蘭清水</span><span>自然養生及</span><span>觀光遊憩園區</span><span>營運與空間規劃</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -445,7 +463,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">南投埔里創新長照園區設計規劃及開發策略評估</span>
+                    <span class="project-name">
+                        <span>南投埔里</span><span>創新長照園區</span><span>設計規劃及</span><span>開發策略評估</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -453,7 +473,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">台北海洋科技大學士林校區發展規劃</span>
+                    <span class="project-name">
+                        <span>台北海洋科技大學</span><span>士林校區</span><span>發展規劃</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -461,7 +483,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">澎湖望安鄉立圖書館重建可行性研究</span>
+                    <span class="project-name">
+                        <span>澎湖望安鄉立圖書館</span><span>重建可行性研究</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -469,7 +493,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">內湖碧湖四小段危老重建規劃設計</span>
+                    <span class="project-name">
+                        <span>內湖碧湖四小段</span><span>危老重建</span><span>規劃設計</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -477,7 +503,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">新北社會局智慧社福大樓前期規劃</span>
+                    <span class="project-name">
+                        <span>新北社會局</span><span>智慧社福大樓</span><span>前期規劃</span>
+                    </span>
                 </div>
 
                 <div class="project-item">
@@ -485,7 +513,9 @@
                     <div class="project-media-box">
                         <video src="ROLLING.mp4" autoplay loop muted playsinline></video>
                     </div>
-                    <span class="project-name">彰化農舍新建工程</span>
+                    <span class="project-name">
+                        <span>彰化農舍</span><span>新建工程</span>
+                    </span>
                 </div>
 
             </div>
