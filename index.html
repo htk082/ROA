@@ -304,21 +304,33 @@
 
         @media (max-width: 768px) {
             header {
-                flex-direction: column; /* 修正：改為垂直分層排版，防止空間窄時 About 被推擠消失 */
-                align-items: flex-start; /* 靠左對齊基底 */
-                gap: 1.5rem;
-                padding: 1.5rem 2rem;
-                background-color: rgba(255, 255, 255, 0.95);
+                flex-direction: row; /* 完全還原：左右橫向並列 */
+                justify-content: space-between;
+                align-items: flex-start; /* 頂部對齊，符合截圖比例 */
+                padding: 2rem 1.5rem;
+                background-color: transparent; /* 保持首頁極簡純白透明感 */
+                backdrop-filter: none;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo span {
+                font-size: 0.7rem; /* 手機版英文微縮，確保不推擠 */
+                letter-spacing: 0.1em;
             }
             
             nav {
-                width: 100%; /* 讓選單容器撐滿 */
-                display: flex;
-                justify-content: flex-end; /* 將 PROJECTS / ABOUT 俐落推至最右側 */
+                display: block;
+                width: auto;
             }
 
             .nav-links {
-                gap: 2rem; /* 保持手機端舒適的點擊間距 */
+                flex-direction: column; /* 讓 PROJECTS 與 ABOUT 垂直靠右排列 */
+                align-items: flex-end;
+                gap: 0.8rem; /* 完美的截圖行距比例 */
+                font-size: 0.85rem;
             }
 
             .hero-text {
