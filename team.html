@@ -54,7 +54,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 4rem;
+            padding: 1.4rem 4rem;
             z-index: 1000;
             animation: bgBreath 8s ease-in-out infinite alternate;
             background-color: transparent; 
@@ -62,14 +62,14 @@
         }
 
         .logo {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .logo span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #737373;
         }
@@ -77,7 +77,7 @@
         .nav-links {
             display: flex;
             gap: 3rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 500;
         }
@@ -181,14 +181,21 @@
             line-height: 1.8;
         }
 
-        .edu-list span {
-            display: inline-block;
-        }
-
         .experience-list {
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
+        }
+
+        /* 事務所獨立大標樣式 */
+        .firm-group-title {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin: 0.8rem 0 0.2rem 0;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px dotted rgba(26, 26, 26, 0.1);
+            text-transform: uppercase;
         }
 
         .exp-item {
@@ -219,19 +226,49 @@
         }
 
         .exp-project {
-            width: 500px; 
             color: #333333;
             font-weight: 500;
-            flex-shrink: 0;
+            flex-grow: 1;
         }
 
         .exp-project span {
             display: block; 
         }
 
-        .exp-firm {
+        /* 媒體刊載排版：橫向串接結構 */
+        .media-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            flex-wrap: wrap; /* 允許視窗變窄時內容換行 */
+        }
+
+        .media-year {
+            width: 60px;
+            color: #1a1a1a;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .media-info {
+            width: 500px;
+            color: #333333;
+            font-weight: 500;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        .media-info span {
+            display: block;
+        }
+
+        .media-author {
             color: #737373;
             font-weight: 500;
+            white-space: nowrap; /* 確保發表人本身文字不分開換行 */
+            flex-grow: 1;
         }
 
         footer {
@@ -247,10 +284,19 @@
         }
 
         @media (max-width: 1024px) {
-            header { padding: 2rem; }
+            header { padding: 1.4rem 2rem; }
             #team-page { padding: 10rem 2rem 6rem 2rem; }
             .avatar-box { margin-right: 2rem; }
-            .exp-project { width: 400px; }
+            .media-info { width: 400px; }
+        }
+
+        /* 關鍵修改：當任何一個發表人開始因空間不足產生換行時 (低於 920px)，其餘所有發表人位置格式一併同步切換 */
+        @media (max-width: 920px) {
+            .media-author {
+                flex-basis: 100%; /* 全數發表人同步強制切換到下一行 */
+                margin-top: 0.3rem;
+                padding-left: 60px; /* 寬度設為 60px，永遠精準對齊上方刊載紀錄文字左側 (跳過年份) */
+            }
         }
 
         @media (max-width: 768px) {
@@ -258,15 +304,15 @@
                 flex-direction: row; 
                 justify-content: space-between;
                 align-items: flex-start; 
-                padding: 2rem 1.5rem;
+                padding: 1.4rem 1.5rem;
                 animation: bgBreath 8s ease-in-out infinite alternate;
                 backdrop-filter: blur(5px);
             }
 
             .logo { line-height: 1.4; }
-            .logo span { font-size: 0.7rem; letter-spacing: 0.1em; }
+            .logo span { font-size: 0.65rem; letter-spacing: 0.1em; }
             
-            nav { display: block; width: auto; height: 2.38rem; }
+            nav { display: block; width: auto; height: 1.8rem; }
 
             .nav-links {
                 height: 100%; 
@@ -274,7 +320,7 @@
                 align-items: flex-end;
                 justify-content: space-between; 
                 gap: 0; 
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 line-height: 1; 
             }
 
@@ -299,10 +345,21 @@
             .name-field { font-size: 0.95rem; }
             
             .exp-item { flex-direction: column; gap: 0.2rem; margin-bottom: 0.5rem; }
-            .exp-item.award-record { padding-left: 0.5em; font-size: 0.75rem; }
+            .exp-item.award-record { padding-left: 0.5em; }
             .exp-year { width: auto; font-size: 0.8rem; color: #737373; text-align: left; padding-right: 0; }
             .exp-project { width: auto; font-size: 0.85rem; }
-            .exp-firm { width: auto; font-size: 0.8rem; }
+
+            /* 手機版下的媒體刊載完全垂直配置 */
+            .media-item { flex-direction: column; gap: 0.2rem; margin-bottom: 0.5rem; }
+            .media-year { width: auto; font-size: 0.8rem; color: #737373; text-align: left; }
+            .media-info { width: auto; font-size: 0.85rem; margin-right: 0; }
+            
+            .media-author { 
+                font-size: 0.8rem; 
+                margin-top: 0.2rem;
+                padding-left: 0rem; /* 手機全版垂直置中，故無須縮排對齊 */
+                flex-basis: 100%;
+            }
             
             footer {
                 padding: 2rem;
@@ -325,7 +382,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="team.html">Team</a></li>
             </ul>
         </nav>
     </header>
@@ -357,109 +414,96 @@
                             <h4>過往實績</h4>
                             <div class="experience-list">
                                 
+                                <div class="firm-group-title" style="color: #737373;">任職於洪大為建築師事務所作品</div>
                                 <div class="exp-item">
                                     <span class="exp-year">2017-2020</span>
                                     <span class="exp-project"><span>臺中市立圖書館上楓分館暨上楓國小活動中心</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2019</span>
-                                    <span class="exp-project">國家卓越建設獎＿最佳規劃設計類</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2019</span>
+                                    <span class="exp-project" style="color: #737373;">國家卓越建設獎＿最佳規劃設計類</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2021</span>
-                                    <span class="exp-project">建築園冶獎＿公共建築景觀類</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2021</span>
+                                    <span class="exp-project" style="color: #737373;">建築園冶獎＿公共建築景觀類</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2023</span>
-                                    <span class="exp-project">A+AWARDS＿Institutional-Libraries</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2023</span>
+                                    <span class="exp-project" style="color: #737373;">A+AWARDS＿Institutional-Libraries</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2023</span>
-                                    <span class="exp-project">美國謬思設計大獎＿銀獎</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2023</span>
+                                    <span class="exp-project" style="color: #737373;">美國謬思設計大獎＿銀獎</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2023</span>
-                                    <span class="exp-project">臺灣建築獎＿入圍</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2023</span>
+                                    <span class="exp-project" style="color: #737373;">臺灣建築獎＿入圍</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2024</span>
-                                    <span class="exp-project">德國iF設計獎</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2024</span>
+                                    <span class="exp-project" style="color: #737373;">德國iF設計獎</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2024</span>
-                                    <span class="exp-project">臺中市都市空間設計大獎＿小場域建築空間＿經典獎</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2024</span>
+                                    <span class="exp-project" style="color: #737373;">臺中市都市空間設計大獎＿小場域建築空間＿經典獎</span>
                                 </div>
 
                                 <div class="exp-item">
                                     <span class="exp-year">2020-2021</span>
                                     <span class="exp-project"><span>臺中市立圖書館上楓分館室內裝修</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
-                                <div class="exp-item award-record">
-                                    <span class="exp-year">2023</span>
-                                    <span class="exp-project">台灣室內設計大獎＿公共空間文化空間＿金獎</span>
+                                <div class="exp-item award-record" style="color: #737373;">
+                                    <span class="exp-year" style="color: #737373;">2023</span>
+                                    <span class="exp-project" style="color: #737373;">台灣室內設計大獎＿公共空間文化空間＿金獎</span>
                                 </div>
 
                                 <div class="exp-item">
                                     <span class="exp-year">2019-2022</span>
                                     <span class="exp-project"><span>國立臺灣海洋大學桃園產學分部藻礁暨海洋生態館</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
-
                                 <div class="exp-item">
                                     <span class="exp-year">2020</span>
                                     <span class="exp-project"><span>大江生醫屏東園區空橋興建工程</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
-
                                 <div class="exp-item">
                                     <span class="exp-year">2020</span>
                                     <span class="exp-project"><span>公視影集「天橋上的魔術師」中華商場周邊街景數位再現</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
-
                                 <div class="exp-item">
                                     <span class="exp-year">2021</span>
                                     <span class="exp-project"><span>珍珍食品加工廠暨辦公室</span></span>
-                                    <span class="exp-firm">任職於洪大為建築師事務所作品</span>
                                 </div>
 
+                                <div class="firm-group-title" style="color: #737373;">任職於徐兆立黃俊騰建築師事務所作品</div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>成美文化園區Villa</span></span>
-                                    <span class="exp-firm">任職於徐兆立黃俊騰建築師事務所作品</span>
                                 </div>
 
+                                <div class="firm-group-title" style="color: #737373;">任職於艸引子聯合建築師事務所作品</div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>臺中市北屯區洲際段住宅</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>彰化縣和美鎮大霞段住宅</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>彰化縣芬園鄉新芬園段住宅</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>彰化縣芳苑鄉裕津段住宅</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
                                 <div class="exp-item">
                                     <span class="exp-year">2022</span>
                                     <span class="exp-project"><span>豐原果菜市場增建工程</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
                                 <div class="exp-item">
                                     <span class="exp-year">2023</span>
                                     <span class="exp-project"><span>彰化縣溪湖鎮四塊厝段住宅</span></span>
-                                    <span class="exp-firm">任職於艸引子聯合建築師事務所作品</span>
                                 </div>
 
                             </div>
@@ -468,29 +512,29 @@
                         <div class="bio-section">
                             <h4>媒體刊載</h4>
                             <div class="experience-list">
-                                <div class="exp-item">
-                                    <span class="exp-year">2023</span>
-                                    <span class="exp-project">
+                                <div class="media-item">
+                                    <span class="media-year">2023</span>
+                                    <span class="media-info">
                                         <span>《建築師》雜誌＿No.582</span>
                                         <span>作品收錄：上楓圖書館</span>
                                     </span>
-                                    <span class="exp-firm">發表人 洪大為建築師事務所</span>
+                                    <span class="media-author">發表人 洪大為建築師事務所</span>
                                 </div>
-                                <div class="exp-item">
-                                    <span class="exp-year">2021</span>
-                                    <span class="exp-project">
+                                <div class="media-item">
+                                    <span class="media-year">2021</span>
+                                    <span class="media-info">
                                         <span>《台灣建築》雜誌＿Vol.311</span>
                                         <span>〈疫情下商業空間的加速轉變〉</span>
                                     </span>
-                                    <span class="exp-firm">發表人 許庭愷</span>
+                                    <span class="media-author">發表人 許庭愷</span>
                                 </div>
-                                <div class="exp-item">
-                                    <span class="exp-year">2020</span>
-                                    <span class="exp-project">
+                                <div class="media-item">
+                                    <span class="media-year">2020</span>
+                                    <span class="media-info">
                                         <span>《台灣建築》雜誌＿Vol.303</span>
                                         <span>〈兩岸潛力建築新生代〉作品收錄：上楓圖書館</span>
                                     </span>
-                                    <span class="exp-firm">發表人 洪大為建築師事務所</span>
+                                    <span class="media-author">發表人 洪大為建築師事務所</span>
                                 </div>
                             </div>
                         </div>
@@ -519,11 +563,83 @@
                         <div class="bio-section">
                             <h4>過往實績</h4>
                             <div class="experience-list">
+                                
+                                <div class="firm-group-title" style="color: #737373;">任職於余曉嵐建築師事務所作品</div>
                                 <div class="exp-item">
-                                    <span class="exp-year">2026</span>
-                                    <span class="exp-project"><span>過往案例列表（待補充）</span></span>
-                                    <span class="exp-firm">任職於余曉嵐建築師事務所作品</span>
+                                    <span class="exp-year">2025</span>
+                                    <span class="exp-project">臺中市榮民總醫院醫護宿舍大樓</span>
                                 </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2025</span>
+                                    <span class="exp-project">臺北市彰化銀行南港分行設計</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2025</span>
+                                    <span class="exp-project">南投市漳和安居社會住宅</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2024</span>
+                                    <span class="exp-project">臺中市北屯區洲際好宅社會住宅</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2024</span>
+                                    <span class="exp-project">臺中市北區明新安居社會住宅</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2023</span>
+                                    <span class="exp-project">臺中市北屯區廍子安居社會住宅</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2022</span>
+                                    <span class="exp-project">雲林縣虎尾營區新建統包工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2021</span>
+                                    <span class="exp-project">臺中市803國軍台中總醫院先見醫療大樓計畫統包工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project">臺中市水湳轉運站規劃設計案</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project">臺中市榮民總醫院第三醫療大樓</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project">屏東縣懷軒園殯葬園區設計</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2020</span>
+                                    <span class="exp-project">臺中市非營利組織及志工發展中心新建工程NPO</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2019</span>
+                                    <span class="exp-project">桃園市航空城新建安置住宅新建案</span>
+                                </div>
+
+                                <div class="firm-group-title" style="color: #737373;">任職於卓玲建築師事務所作品</div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2019</span>
+                                    <span class="exp-project">桃園市欣巴巴建設集合住宅新建工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2019</span>
+                                    <span class="exp-project">新竹市向唐建設集合住宅新建工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2018</span>
+                                    <span class="exp-project">桃園市卓悅建設集合住宅新建工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2018</span>
+                                    <span class="exp-project">新竹市椰林建設集合住宅新建工程</span>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-year">2017</span>
+                                    <span class="exp-project">桃園市元昌建設集合住宅新建工程</span>
+                                </div>
+
                             </div>
                         </div>
                     </div>

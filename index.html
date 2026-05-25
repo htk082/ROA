@@ -7,7 +7,6 @@
     <meta name="description" content="若里 Rolling 建築師事務所，專注於當代空間規劃，提供量身訂做的細緻設計與空間策略。">
     <meta name="keywords" content="若里, Rolling, 建築師事務所, 建築設計,生技廠房, 現代極簡, 空間規劃, 台灣建築師">
     <style>
-        /* --- 全局冷高冷風格重設 --- */
         * {
             margin: 0;
             padding: 0;
@@ -24,13 +23,12 @@
             animation: bgBreath 8s ease-in-out infinite alternate;
         }
 
-        /* 網頁底色 CMYK 呼吸漸變動畫 */
         @keyframes bgBreath {
             0% {
-                background-color: #fdf9e7; /* CMYK = 0, 3, 11, 0 (微暖質白) */
+                background-color: #fdf9e7;
             }
             100% {
-                background-color: #f7f1eb; /* CMYK = 2, 5, 7, 0 (淡矽藻灰白) */
+                background-color: #f7f1eb;
             }
         }
 
@@ -52,7 +50,6 @@
             list-style: none;
         }
 
-        /* --- 導覽列 --- */
         header {
             position: fixed;
             top: 0;
@@ -61,7 +58,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 4rem;
+            padding: 1.4rem 4rem;
             z-index: 1000;
             animation: bgBreath 8s ease-in-out infinite alternate;
             background-color: transparent; 
@@ -69,14 +66,14 @@
         }
 
         .logo {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .logo span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #737373;
         }
@@ -84,12 +81,11 @@
         .nav-links {
             display: flex;
             gap: 3rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 500;
         }
 
-        /* --- 首頁 --- */
         #home {
             height: 100vh;
             display: flex;
@@ -157,7 +153,6 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* --- 通用區塊樣式 --- */
         section {
             padding: 8rem 4rem;
             max-width: 1400px;
@@ -171,7 +166,6 @@
             text-transform: uppercase;
         }
 
-        /* --- 作品案例 --- */
         .project-list {
             display: flex;
             flex-direction: column;
@@ -229,7 +223,6 @@
             display: inline-block;
         }
 
-        /* --- 關於我們 --- */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -289,7 +282,6 @@
             line-height: 1; 
         }
 
-        /* --- 頁尾 --- */
         footer {
             padding: 4rem;
             border-top: 1px solid rgba(26, 26, 26, 0.05);
@@ -302,10 +294,9 @@
             font-weight: 500;
         }
 
-        /* --- RWD 響應式斷點設定 --- */
         @media (max-width: 1024px) {
             header {
-                padding: 2rem;
+                padding: 1.4rem 2rem;
             }
             section {
                 padding: 6rem 2rem;
@@ -323,25 +314,25 @@
                 flex-direction: row; 
                 justify-content: space-between;
                 align-items: flex-start; 
-                padding: 2rem 1.5rem;
+                padding: 1.4rem 1.5rem;
                 animation: bgBreath 8s ease-in-out infinite alternate;
                 backdrop-filter: blur(5px);
             }
 
             .logo {
-                font-size: 1rem;
-                line-height: 1.4; 
+                font-size: 0.95rem;
+                line-height: 1.3; 
             }
 
             .logo span {
-                font-size: 0.7rem; 
+                font-size: 0.65rem; 
                 letter-spacing: 0.1em;
             }
             
             nav {
                 display: block;
                 width: auto;
-                height: 2.38rem; 
+                height: 1.8rem; 
             }
 
             .nav-links {
@@ -350,7 +341,7 @@
                 align-items: flex-end;
                 justify-content: space-between; 
                 gap: 0; 
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 line-height: 1; 
             }
 
@@ -405,7 +396,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="team.html">Team</a></li>
             </ul>
         </nav>
     </header>
